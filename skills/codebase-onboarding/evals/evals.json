@@ -1,0 +1,41 @@
+{
+  "skill_name": "codebase-onboarding",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vulnpatch-monorepo",
+      "prompt": "Onboard me to this repo — I'm a new engineer and need to understand what it does, how it's built, and how it's architected before I start contributing.",
+      "expected_output": "A Markdown + self-contained HTML onboarding report covering business context, architecture, domain model, data model, and the other Section A/B categories, correctly identifying this as a layered system (React frontend, thin TS/Hono proxy with unused oRPC/DB scaffolding, Python FastAPI service holding the real business logic), with AI reasoning done via CLI subprocess rather than API/SDK, no authentication anywhere, and Podman-based sandboxing of untrusted code.",
+      "files": [],
+      "expectations": [
+        "Produces both a Markdown report file and an HTML report file as separate output files",
+        "The HTML report's diagram-rendering script tag references a local file (e.g. ./mermaid.min.js), not a CDN URL (e.g. cdn.jsdelivr.net, unpkg.com)",
+        "The report includes, at minimum, an executive/business summary, an architecture diagram, a domain model section, a critical workflow walkthrough, and a list of open questions/unknowns for the original developers",
+        "Claims about business intent, users, who pays, or motive are either cited to a specific file/line or explicitly flagged as inferred/unknown (e.g. with a marker like the warning emoji or the word 'inferred' or 'unknown')",
+        "The report cites specific repository file paths (ideally with line numbers) as evidence for its claims, not just general unsourced description",
+        "The unknowns/open-questions section is non-empty and specific to this repository (not generic boilerplate that could apply to any codebase)",
+        "The report identifies that the TypeScript oRPC router and/or Drizzle database layer (packages/api, packages/db) is unused/scaffolding rather than active business logic, or explicitly states it could not determine this",
+        "The report identifies that AI reasoning in this system is performed by shelling out to a CLI tool (Claude Code CLI and/or Codex CLI) via subprocess, rather than a direct LLM API/SDK integration",
+        "The report correctly states that there is no authentication or authorization anywhere in the system"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "autoresearch-small",
+      "prompt": "Onboard me to this repo — I'm a new engineer and need to understand what it does, how it's built, and how it's architected before I start contributing.",
+      "expected_output": "A proportionally short Markdown + self-contained HTML onboarding report that correctly recognizes this as a small, single-purpose local script (not a service), skips or explicitly marks not-applicable any sections that don't fit a system this size (deployment diagram, service dependency diagram, database ERD), and surfaces the real domain-specific findings: the gitignored/untracked results.tsv experiment ledger, and the hard NVIDIA GPU requirement with no CPU fallback.",
+      "files": [],
+      "expectations": [
+        "Produces both a Markdown report file and an HTML report file as separate output files",
+        "The HTML report's diagram-rendering script tag references a local file (e.g. ./mermaid.min.js), not a CDN URL (e.g. cdn.jsdelivr.net, unpkg.com)",
+        "The report includes, at minimum, an executive/business summary, an architecture diagram, a domain model section, a critical workflow walkthrough, and a list of open questions/unknowns for the original developers",
+        "Claims about business intent, users, who pays, or motive are either cited to a specific file/line or explicitly flagged as inferred/unknown (e.g. with a marker like the warning emoji or the word 'inferred' or 'unknown')",
+        "The report cites specific repository file paths (ideally with line numbers) as evidence for its claims, not just general unsourced description",
+        "The unknowns/open-questions section is non-empty and specific to this repository (not generic boilerplate that could apply to any codebase)",
+        "The report does not force irrelevant enterprise-scale sections (e.g. a fabricated Kubernetes/cloud deployment diagram, or a multi-service dependency diagram) onto what is a single-script local tool — it either omits those sections or explicitly marks them not applicable, and the overall report length is proportionally short rather than padded",
+        "The report identifies that the experiment results ledger (results.tsv or equivalent) is untracked/gitignored and not committed to version control",
+        "The report identifies that the system requires an NVIDIA GPU with no CPU/alternative-platform fallback in the code"
+      ]
+    }
+  ]
+}

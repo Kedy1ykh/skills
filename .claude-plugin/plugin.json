@@ -1,0 +1,17 @@
+{
+  "name": "codebase-skills",
+  "version": "1.0.0",
+  "description": "Skills and agents for understanding unfamiliar codebases: whole-repo onboarding (codebase-onboarding), exhaustive single-mechanism traces (subsystem-deep-dive), transferable-pattern extraction for a new project (engineering-pattern-extraction), and staleness audits of existing architecture docs against git history (docs-drift-audit).",
+  "author": {
+    "name": "<your-github-username>"
+  },
+  "homepage": "https://github.com/<your-github-username>/codebase-skills",
+  "repository": "https://github.com/<your-github-username>/codebase-skills",
+  "keywords": [
+    "codebase-onboarding",
+    "architecture",
+    "documentation",
+    "code-comprehension",
+    "docs-audit"
+  ]
+}
