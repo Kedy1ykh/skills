@@ -1,0 +1,17 @@
+{
+  "name": "productivity",
+  "version": "1.0.0",
+  "description": "General workflow skills, not code-specific: relentless design-tree interviews (grilling/grill-me), conversation handoffs, visual explanations (show-me), async questionnaires, a stateful multi-session teaching workspace, re-pitching a message that didn't land (wait-what), and writing documents for agents.",
+  "author": {
+    "name": "Kedy1ykh"
+  },
+  "homepage": "https://github.com/Kedy1ykh/skills",
+  "repository": "https://github.com/Kedy1ykh/skills",
+  "keywords": [
+    "productivity",
+    "workflow",
+    "brainstorming",
+    "teaching",
+    "handoff"
+  ]
+}

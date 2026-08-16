@@ -1,15 +1,33 @@
 {
   "name": "codebase-skills",
-  "description": "Marketplace for the codebase-skills plugin — codebase onboarding, subsystem deep-dives, engineering pattern extraction, docs drift audits, and in-repo pattern finding.",
+  "description": "Marketplace hosting three independent plugins: codebase (onboarding, deep-dives, pattern extraction, docs-drift audits, in-repo pattern finding), productivity (general workflow skills), and engineering (domain modeling and ADRs).",
   "owner": {
     "name": "Kedy1ykh"
   },
   "plugins": [
     {
-      "name": "codebase-skills",
+      "name": "codebase",
       "description": "Skills and agents for understanding unfamiliar codebases: whole-repo onboarding, exhaustive single-mechanism traces, transferable-pattern extraction, docs-vs-code staleness audits, and finding existing in-repo precedent before writing new code.",
       "version": "1.1.0",
-      "source": "./",
+      "source": "./codebase",
+      "author": {
+        "name": "Kedy1ykh"
+      }
+    },
+    {
+      "name": "productivity",
+      "description": "General workflow skills, not code-specific: design-tree interviews, conversation handoffs, visual explanations, async questionnaires, a multi-session teaching workspace, and re-pitching a message that didn't land.",
+      "version": "1.0.0",
+      "source": "./productivity",
+      "author": {
+        "name": "Kedy1ykh"
+      }
+    },
+    {
+      "name": "engineering",
+      "description": "Domain modeling: build and sharpen a project's ubiquitous language (CONTEXT.md) and record architecture decisions (ADRs).",
+      "version": "1.0.0",
+      "source": "./engineering",
       "author": {
         "name": "Kedy1ykh"
       }

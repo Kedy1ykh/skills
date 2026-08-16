@@ -1,5 +1,5 @@
 {
-  "name": "codebase-skills",
+  "name": "codebase",
   "version": "1.1.0",
   "description": "Skills and agents for understanding unfamiliar codebases and writing code that fits them: whole-repo onboarding (codebase-onboarding), exhaustive single-mechanism traces (subsystem-deep-dive), transferable-pattern extraction for a new project (engineering-pattern-extraction), staleness audits of existing architecture docs against git history (docs-drift-audit), and finding existing in-repo precedent to model new code after (pattern-finder).",
   "author": {

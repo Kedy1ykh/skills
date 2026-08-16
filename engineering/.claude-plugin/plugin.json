@@ -1,0 +1,17 @@
+{
+  "name": "engineering",
+  "version": "1.0.0",
+  "description": "Domain modeling: actively build and sharpen a project's ubiquitous language as you design, keeping a CONTEXT.md glossary current and recording ADRs for hard-to-reverse, non-obvious, genuinely-traded-off decisions.",
+  "author": {
+    "name": "Kedy1ykh"
+  },
+  "homepage": "https://github.com/Kedy1ykh/skills",
+  "repository": "https://github.com/Kedy1ykh/skills",
+  "keywords": [
+    "domain-modeling",
+    "ubiquitous-language",
+    "adr",
+    "architecture-decisions",
+    "glossary"
+  ]
+}
