@@ -1,6 +1,6 @@
 ---
 name: codebase-onboarding
-description: Use whenever someone needs to deeply understand an unfamiliar codebase fast — onboarding a new engineer, inheriting legacy code, due diligence before a decision, or any broad "what is this / how does this work / how is this architected" question about code the current team didn't write. TRIGGER on "onboard me to this repo," "explain this codebase," "document the architecture," "help a new engineer understand this project," "generate architecture docs," "walk me through this system," or a cold open of a repo needing business, architecture, domain, data, security, or ops context — even without the word "onboarding." Produces a cited Markdown report plus offline-capable HTML (diagrams, no CDN) covering an exec summary, architecture/context/dependency/domain/data-flow diagrams, a DB ERD, a workflow walkthrough, a deployment diagram, ADRs, a risk map, and open questions. Do NOT use for narrow single-function questions — answer those directly.
+description: Use whenever someone needs to deeply understand an unfamiliar codebase fast — onboarding a new engineer, inheriting legacy code, due diligence before a decision, or any broad "what is this / how does this work / how is this architected" question about code the current team didn't write. TRIGGER on "onboard me to this repo," "explain this codebase," "document the architecture," "help a new engineer understand this project," "generate architecture docs," "walk me through this system," or a cold open of a repo needing business, architecture, domain, data, security, or ops context — even without the word "onboarding." Produces a cited Markdown report plus offline-capable HTML (diagrams, no CDN) covering an exec summary, architecture/context/dependency/domain/data-flow diagrams, a DB ERD, a workflow walkthrough, a deployment diagram, ADRs, a risk map, and open questions. Do NOT use for narrow single-function questions — answer those directly, or dispatch `codebase-locator` if you just need to find where something lives fast. Do NOT use it when the real ask is "what should my new code look like" for something about to be built here — that's `pattern-finder`.
 ---
 
 # Codebase Onboarding
@@ -34,6 +34,9 @@ in — not for narrow lookups. A few boundary cases to make the distinction conc
   section is one piece of a bigger picture, not a substitute for a dedicated security review.
 - "Explain this one file to me" → doesn't apply, same reasoning as the single-function case —
   just read and explain the file.
+- "How do we normally do X here, I'm about to add another one" → doesn't apply, that's a
+  `pattern-finder` question (what should new code look like), not a whole-system understanding
+  question.
 
 When in doubt, the tell is scope: one function or file, answer directly; the shape of an
 unfamiliar system, run the full skill.
@@ -344,6 +347,15 @@ duplicating instructions that already live in the agent's system prompt, put the
 instead; if you find the agent needs to know something specific to how *this* skill uses it, put
 that in the dispatch prompt template in Step 3 rather than growing the agent's own instructions to
 cover every possible caller.
+
+## Relationship to codebase-locator and codebase-pattern-finder
+
+Neither of these is a substitute worker for the fan-out above — they answer narrower questions
+that sometimes come up adjacent to an onboarding pass. If Step 1's orientation pass just needs to
+confirm whether something exists or find where it lives (not explain it), dispatching
+`codebase-locator` is cheaper than spending an archaeologist's budget on it. If, mid-onboarding,
+the requester pivots to "okay, so how would I add a new one of these" — that's `pattern-finder`'s
+question, not this skill's; hand it off rather than stretching Section A to cover it.
 
 ## Step 6 — Self-check before calling it done
 

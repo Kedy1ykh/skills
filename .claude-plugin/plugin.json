@@ -1,17 +1,18 @@
 {
   "name": "codebase-skills",
-  "version": "1.0.0",
-  "description": "Skills and agents for understanding unfamiliar codebases: whole-repo onboarding (codebase-onboarding), exhaustive single-mechanism traces (subsystem-deep-dive), transferable-pattern extraction for a new project (engineering-pattern-extraction), and staleness audits of existing architecture docs against git history (docs-drift-audit).",
+  "version": "1.1.0",
+  "description": "Skills and agents for understanding unfamiliar codebases and writing code that fits them: whole-repo onboarding (codebase-onboarding), exhaustive single-mechanism traces (subsystem-deep-dive), transferable-pattern extraction for a new project (engineering-pattern-extraction), staleness audits of existing architecture docs against git history (docs-drift-audit), and finding existing in-repo precedent to model new code after (pattern-finder).",
   "author": {
-    "name": "<your-github-username>"
+    "name": "Kedy1ykh"
   },
-  "homepage": "https://github.com/<your-github-username>/codebase-skills",
-  "repository": "https://github.com/<your-github-username>/codebase-skills",
+  "homepage": "https://github.com/Kedy1ykh/skills",
+  "repository": "https://github.com/Kedy1ykh/skills",
   "keywords": [
     "codebase-onboarding",
     "architecture",
     "documentation",
     "code-comprehension",
-    "docs-audit"
+    "docs-audit",
+    "pattern-finder"
   ]
 }

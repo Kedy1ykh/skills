@@ -1,0 +1,44 @@
+{
+  "skill_name": "pattern-finder",
+  "_note": "Public-safe and template-based, matching codebase-onboarding's eval file convention. Eval 1 needs a repo you have rights to test against, substituted with a real recurring pattern and its real precedent locations. Evals 2 and 3 test process compliance (honesty when no precedent exists, surfacing disagreement across precedents) and are written to be substitutable without pre-committing to unverified facts.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "existing-convention-template",
+      "prompt": "Is there an existing pattern for <name a concrete, recurring implementation shape you know exists more than once in a repo you have rights to test against, e.g. 'paginating a list endpoint' or 'retrying a failed outbound call'>? I'm about to add another one.",
+      "expected_output": "TEMPLATE — substitute a real recurring pattern with at least two real instances in the codebase, and write the real expected file:line citations and recommendation here before running.",
+      "files": [],
+      "expectations": [
+        "Narrows the pattern to a concrete, searchable shape before or as part of the response, rather than answering the broad phrasing literally",
+        "Returns at least one real file:line citation to an existing implementation, not a general description of how such patterns are 'usually' done",
+        "Recommends one specific example to model new code after, with a reason tied to what was found",
+        "Response is delivered as chat text by default, not written to a file, unless the request implied wanting several patterns catalogued at once",
+        "REPLACE WITH: 1-2 assertions naming the specific file:line locations this repo's search should surface"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "no-precedent-honesty",
+      "prompt": "How do we normally handle <name a mechanism you've confirmed does NOT exist anywhere yet in a repo you have rights to test against, e.g. a mechanism the project has genuinely never needed>?",
+      "expected_output": "The skill should report plainly that no existing precedent was found, rather than fabricating an idealized 'best practice' example dressed up as if it came from this codebase.",
+      "files": [],
+      "expectations": [
+        "States explicitly that no existing example was found in this codebase",
+        "Does not present a generic/idealized implementation as if it were an actual precedent from the repo",
+        "Does not fabricate a file:line citation for code that doesn't actually contain the pattern"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "inconsistent-precedent-surfaced",
+      "prompt": "What's the convention here for <a mechanism you've confirmed is implemented in at least two genuinely different, inconsistent ways in a repo you have rights to test against, e.g. two endpoints using different pagination strategies>?",
+      "expected_output": "TEMPLATE — substitute a repo with a confirmed real inconsistency between two or more existing implementations of the same shape. The skill should surface the disagreement explicitly rather than silently picking one and presenting it as 'the' convention.",
+      "files": [],
+      "expectations": [
+        "Explicitly notes that multiple existing implementations disagree, rather than silently presenting only one as if it were the sole convention",
+        "Still gives a recommendation for which one to follow, with reasoning, rather than leaving the reader to decide unaided",
+        "REPLACE WITH: the two specific approaches and file:line locations this repo's inconsistency should surface"
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@ Depth instead of breadth. The reader already knows roughly what the system is �
 Going deep on the wrong subsystem wastes the entire point of this skill, so confirm the boundary before spawning anything:
 
 - If the requester named a specific module/directory/mechanism, use that as the scope directly.
-- If the request is vague ("the caching stuff," "how routing works"), do a 2-minute orientation pass yourself — grep for the term, skim the matching directory names, glance at import graphs if `codebase-memory` MCP tools are available — and state back what you think the boundary is before committing real effort. A wrong guess here costs the whole pass; a two-line confirmation costs nothing.
+- If the request is vague ("the caching stuff," "how routing works"), do a 2-minute orientation pass yourself — grep for the term, skim the matching directory names, glance at import graphs if `codebase-memory` MCP tools are available — or dispatch `codebase-locator` for the same lookup if it's installed, since that's exactly the fast, non-analytical search it exists for. Either way, state back what you think the boundary is before committing real effort. A wrong guess here costs the whole pass; a two-line confirmation costs nothing.
 - Decide whether the subsystem has internal sub-parts worth splitting across workers (e.g. "the provider layer" might split into "the protocol/selector" and "the per-vendor adapter quirks") or whether it's cohesive enough for one worker to cover end to end. Most subsystems are the latter — don't manufacture a fan-out where one focused pass would do.
 
 ## Step 2 — Dispatch with a much narrower, much deeper brief

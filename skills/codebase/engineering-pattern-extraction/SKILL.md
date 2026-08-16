@@ -1,6 +1,6 @@
 ---
 name: engineering-pattern-extraction
-description: Use when someone wants transferable engineering lessons from a codebase to apply to a DIFFERENT, similar project they're building — not to understand this codebase for its own sake. TRIGGER on "if I were building something like this, what should I copy or avoid," "extract the design patterns from this codebase," "what can we learn from how X built their Y," "give me a build-order playbook based on this system's architecture," "what would you steal from this repo," or similar. Produces a compact patterns-to-copy vs. traps-to-avoid comparison, a recommended build order, and a one-paragraph thesis — written for someone designing a new system, not for someone onboarding onto this one. Do NOT use for understanding this codebase itself (use codebase-onboarding instead) or for an exhaustive trace of one mechanism (use subsystem-deep-dive instead).
+description: Use when someone wants transferable engineering lessons from a codebase to apply to a DIFFERENT, similar project they're building — not to understand this codebase for its own sake, and not to write new code inside this same repo. TRIGGER on "if I were building something like this, what should I copy or avoid," "extract the design patterns from this codebase," "what can we learn from how X built their Y," "give me a build-order playbook based on this system's architecture," "what would you steal from this repo," or similar. Produces a compact patterns-to-copy vs. traps-to-avoid comparison, a recommended build order, and a one-paragraph thesis — written for someone designing a new system, not for someone onboarding onto this one. Do NOT use for understanding this codebase itself (use codebase-onboarding instead), for an exhaustive trace of one mechanism (use subsystem-deep-dive instead), or when the requester is about to write code in THIS SAME repo and wants to match existing convention (use pattern-finder instead).
 ---
 
 # Engineering Pattern Extraction
@@ -52,3 +52,7 @@ Be honest about scale: if the codebase doesn't actually have much worth extracti
 ## Output
 
 One Markdown file, no HTML/diagram-bundling requirement. Default to `docs/<project-name>-build-guidance.md` in the target repo unless told otherwise. Keep it short — this genre earns its value from being distilled, not exhaustive; if it's approaching the length of a full onboarding report, you've drifted into describing the system instead of extracting lessons from it.
+
+## Relationship to pattern-finder
+
+Easy to confuse because both compare implementations, but the audience is opposite. This skill is for someone who will never touch this repo's code — they're taking lessons *out* to a different codebase, which is why the output is a standalone Markdown file. `pattern-finder` is for someone actively writing code *inside* this same repo who wants to match existing convention — its output is a quick in-chat answer, not a deliverable. If the requester says "I'm about to add a new one of these" about a feature in the codebase you're both looking at, that's `pattern-finder`, not this skill.

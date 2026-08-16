@@ -1,0 +1,43 @@
+{
+  "skill_name": "docs-drift-audit",
+  "_note": "Public-safe and template-based, matching codebase-onboarding's eval file convention. Eval 1 needs you to substitute a repo/doc-corpus pair you have rights to test against and fill in the real expected findings. Evals 2 and 3 test process compliance (baseline handling, changed-vs-wrong discipline) and are written to not depend on repo-specific facts beyond the substituted target existing.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "stale-doc-template",
+      "prompt": "Are the docs in <path to a docs/architecture-notes directory in a repo you have rights to test against> still accurate? Use <a real prior commit hash, tag, or date> as the baseline.",
+      "expected_output": "TEMPLATE — substitute a real doc corpus with at least one doc file that cites code which has since meaningfully changed, and write the real expected per-claim findings (the actual commit hash, the actual old-vs-new behavior) here before running.",
+      "files": [],
+      "expectations": [
+        "Produces a summary table with one row per doc file, each with a status and urgency",
+        "For every flagged 'needs update' claim, cites a specific commit hash that a reader could paste into `git show` to verify themselves — not just a paraphrase",
+        "Includes a populated 'What Is Unchanged' section, not just the flagged findings",
+        "Does not flag a claim as stale purely because its cited file had commits in range — only when the specific behavior the claim asserts actually changed",
+        "REPLACE WITH: 1-2 assertions naming the specific stale claim and commit hash this corpus should surface"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "no-baseline-should-ask",
+      "prompt": "Are our architecture docs still accurate?",
+      "expected_output": "Given a doc corpus with no self-reported version/date/commit stamp, and no baseline supplied by the requester, the skill should ask which baseline to use (or fall back explicitly to 'last commit that touched the docs directory' and say that's what it's doing) rather than silently picking an arbitrary commit range and presenting the resulting audit as authoritative.",
+      "files": [],
+      "expectations": [
+        "Either asks the requester for a baseline, or explicitly states it is falling back to the docs directory's last-touched commit as the baseline — does not silently assume a baseline without saying so",
+        "Does not produce a final audit report with confident staleness verdicts before the baseline question is resolved one way or the other"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "changed-file-not-necessarily-wrong",
+      "prompt": "Audit <a doc file that cites a file which has had only cosmetic/refactor commits since the stated baseline, e.g. a rename, a formatting pass, or a comment-only change, in a repo you have rights to test against> for drift.",
+      "expected_output": "TEMPLATE — substitute a doc + cited file where the file changed but the specific behavior the doc describes did not. The skill should not flag every claim citing that file as stale merely because commits exist in range.",
+      "files": [],
+      "expectations": [
+        "Reads the actual diff(s) for the changed file rather than flagging staleness based on commit existence alone",
+        "Correctly marks the claim as still accurate ('changed, but claim still holds') when the underlying behavior the claim describes didn't actually change",
+        "If a genuinely stale claim also exists in the same doc, it's still correctly flagged — this eval checks the skill discriminates per-claim, not that it marks everything as fine"
+      ]
+    }
+  ]
+}

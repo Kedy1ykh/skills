@@ -1,17 +1,17 @@
 {
   "name": "codebase-skills",
-  "description": "Marketplace for the codebase-skills plugin — codebase onboarding, subsystem deep-dives, engineering pattern extraction, and docs drift audits.",
+  "description": "Marketplace for the codebase-skills plugin — codebase onboarding, subsystem deep-dives, engineering pattern extraction, docs drift audits, and in-repo pattern finding.",
   "owner": {
-    "name": "<your-github-username>"
+    "name": "Kedy1ykh"
   },
   "plugins": [
     {
       "name": "codebase-skills",
-      "description": "Skills and agents for understanding unfamiliar codebases: whole-repo onboarding, exhaustive single-mechanism traces, transferable-pattern extraction, and docs-vs-code staleness audits.",
-      "version": "1.0.0",
+      "description": "Skills and agents for understanding unfamiliar codebases: whole-repo onboarding, exhaustive single-mechanism traces, transferable-pattern extraction, docs-vs-code staleness audits, and finding existing in-repo precedent before writing new code.",
+      "version": "1.1.0",
       "source": "./",
       "author": {
-        "name": "<your-github-username>"
+        "name": "Kedy1ykh"
       }
     }
   ]

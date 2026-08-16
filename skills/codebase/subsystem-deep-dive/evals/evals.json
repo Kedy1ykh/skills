@@ -1,0 +1,45 @@
+{
+  "skill_name": "subsystem-deep-dive",
+  "_note": "Kept public-safe and template-based, matching codebase-onboarding's eval file: no specific private-repo facts are pre-filled. Point evals 1 and 2 at a repo you have rights to test against and fill in the TEMPLATE fields before running. Eval 3 tests process compliance (how the skill handles a vague scope request) and doesn't require repo-specific facts beyond the substituted repo existing.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "single-mechanism-template",
+      "prompt": "Trace exactly how <name a specific mechanism you know well in a repo you have rights to test against, e.g. 'the request-retry logic' or 'the job scheduler'> works, file by file. I need to safely modify it.",
+      "expected_output": "TEMPLATE — substitute a real, moderately complex mechanism (ideally one with at least one shared state/context object passed between steps, and at least one non-obvious constant/threshold) before running. Write the real expected findings (the actual stage sequence, the actual field names) here so the eval can catch a wrong or incomplete trace, not just a well-formatted one.",
+      "files": [],
+      "expectations": [
+        "Confirms or restates the subsystem boundary before doing deep research, rather than silently guessing scope from an ambiguous request",
+        "Produces a single dense Markdown reference doc, not the 12-item codebase-onboarding report shape",
+        "Includes an ordered stage/step table with a file:line citation on every step, not just the ones that were easy to find",
+        "If the mechanism passes state between steps via a shared object, includes a field-by-field table naming who writes and who reads each field, cited",
+        "Includes a constants/thresholds table for any magic numbers or tunable defaults that control the mechanism's behavior",
+        "REPLACE WITH: 1-3 assertions about the exact stage sequence or field names specific to the mechanism you substitute in"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "cleanly-named-subsystem-template",
+      "prompt": "Deep dive into <a small, cleanly-named subsystem with no real naming ambiguity, in a repo you have rights to test against>.",
+      "expected_output": "TEMPLATE — substitute a subsystem you've confirmed has no naming traps (no reused identifiers, no misleading names) so this eval specifically checks the skill doesn't manufacture a naming-traps section where none is warranted.",
+      "files": [],
+      "expectations": [
+        "Does NOT force a 'naming traps' section when the subsystem is genuinely cleanly named — either omits it or states plainly that none were found, rather than inventing a marginal one to fill the section",
+        "Scales section count and depth to the subsystem's actual complexity rather than always producing all six possible sections",
+        "Every step in the ordered sequence still has a citation despite the doc being short"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "vague-scope-resolution",
+      "prompt": "Can you deep dive into the caching stuff in this repo?",
+      "expected_output": "The skill should not silently guess which of possibly several caching-related areas the requester means. It should do a brief orientation pass (grep/glob for the term, or a codebase-memory structural query if available) and state back what it believes the boundary is — e.g. 'I found caching logic in X and Y; I'm scoping this to X, say if you meant Y instead' — before committing to the full deep-dive research effort.",
+      "files": [],
+      "expectations": [
+        "States back an inferred scope/boundary before or very early in the response, rather than only producing a final report with no scope confirmation at all",
+        "The orientation pass is visibly lightweight (a quick search) rather than a full research fan-out used just to resolve scope ambiguity",
+        "If the repo substituted for this eval genuinely has only one plausible 'caching' area, the skill may proceed directly — that's also a pass, as long as it names the area it settled on"
+      ]
+    }
+  ]
+}

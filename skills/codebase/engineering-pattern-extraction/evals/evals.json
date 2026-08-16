@@ -1,0 +1,32 @@
+{
+  "skill_name": "engineering-pattern-extraction",
+  "_note": "Public-safe and template-based, matching codebase-onboarding's eval file convention: no specific private-repo facts pre-filled. Fill in TEMPLATE fields against a repo you have rights to test against before running eval 1. Eval 2 specifically needs a genuinely unremarkable repo (straightforward CRUD, no unusual architectural decisions) to test the skill's honesty check.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "load-bearing-decision-template",
+      "prompt": "If I were building something similar to this from scratch, what should I copy and what should I avoid?",
+      "expected_output": "TEMPLATE — substitute a repo with at least one genuinely hard, load-bearing design decision (a cost-control strategy, an isolation boundary, a consistency/reconciliation mechanism, a pluggable-provider abstraction, etc.) and write the real expected COPY items, AVOID items, and thesis sentence here before running.",
+      "files": [],
+      "expectations": [
+        "Output is structured as COPY list, AVOID list, a numbered build order, and a one-paragraph thesis — not a description of the whole codebase",
+        "Every COPY and AVOID item carries a file:line citation",
+        "The build order is justified by dependency between steps, not just the order the codebase happened to grow in",
+        "The thesis sentence is specific enough that it would be wrong advice for a sufficiently different kind of system — not a generic platitude that would fit almost any well-built project",
+        "REPLACE WITH: 1-2 assertions naming the specific load-bearing decision this repo's extraction should surface"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "unremarkable-crud-honesty",
+      "prompt": "What would you steal from this codebase if you were building something similar?",
+      "expected_output": "TEMPLATE — substitute a small, genuinely straightforward CRUD-style repo with no unusual architectural decisions (a basic REST API over a single database with standard framework conventions, nothing more). The skill should recognize there isn't much worth extracting and say so honestly, rather than manufacturing insight to fill out the standard sections.",
+      "files": [],
+      "expectations": [
+        "Explicitly states that the codebase doesn't have much unusual or load-bearing to extract, rather than padding the COPY list with generic best practices ('use version control', 'write tests') that aren't specific findings from this codebase",
+        "The output is proportionally short, not stretched to match the length of a report for a genuinely complex system",
+        "Does not fabricate a dramatic-sounding thesis sentence for a codebase that doesn't support one"
+      ]
+    }
+  ]
+}
