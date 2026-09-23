@@ -1,6 +1,6 @@
 {
   "name": "engineering",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Domain modeling: actively build and sharpen a project's ubiquitous language as you design, keeping a CONTEXT.md glossary current and recording ADRs for hard-to-reverse, non-obvious, genuinely-traded-off decisions.",
   "author": {
     "name": "Kedy1ykh"
